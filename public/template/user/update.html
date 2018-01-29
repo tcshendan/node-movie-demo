@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <form name="update_form" ng-submit="User.update(User.user_data._id)">
+                <div class="modal-header">修改</div>
+                <div class="model-body">
+                    <div class="form-group">
+                        <label>用户名</label>
+                        <input type="text" class="form-control" name="user[name]" ng-model="update_data.name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>密码</label>
+                        <input type="password" class="form-control" name="user[password]" ng-model="update_data.password" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" type="button" ui-sref="userlist">返回</button>
+                    <button class="btn btn-success" type="submit" ng-disabled="update_form.$invalid">提交</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

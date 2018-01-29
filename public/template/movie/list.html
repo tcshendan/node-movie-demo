@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <div class="panel panel-default" ng-repeat="cat in Movie.catetories" ng-if="cat.movies.length>0">
+            <div class="panel-heading">
+                <h3><a ui-sref="results({cat: cat._id, p: 0})">{{cat.name}}</a></h3>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-2" ng-if="cat.movies" ng-repeat="item in cat.movies">
+                    <div class="thumbnail">
+                        <a ui-sref="movie({id: item._id})">
+                            <img ng-src="{{item.poster}}" alt="{{item.title}}">
+                        </a>
+                        <div class="caption">
+                            <h3>{{item.title}}</h3>
+                            <p><a ui-sref="movie({id: item._id})" role="button" class="btn btn-primary">观看预告片</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

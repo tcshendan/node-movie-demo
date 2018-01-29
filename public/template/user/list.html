@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>名字</th>
+                    <th>时间</th>
+                    <th>查看</th>
+                    <th>修改</th>
+                    <th>删除</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="item-id-{{item._id}}" ng-repeat="item in User.users track by $index">
+                    <td>{{item.name}}</td>
+                    <td>{{item.meta.updateAt}}</td>
+                    <td>
+                        <a ui-sref="showUser({id: item._id})" target="_blank">查看</a>
+                    </td>
+                    <td>
+                        <a ui-sref="updateUser({id: item._id})" target="_blank">修改</a>
+                    </td>
+                    <td>
+                        <button ui-sref="deleteUser({id: item._id})" class="btn btn-danger del" type="button" data-id="{{item._id}}">删除</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <form class="form-horizontal" ng-submit="Catetory.save(Catetory.catetory)">
+            <div class="form-group">
+                <label for="inputCatetory" class="col-sm-2 control-label">电影分类</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="catetory[name]" ng-model="Catetory.catetory.name">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button class="btn btn-default" type="submit">录入</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="panel panel-defatul">
+    <div class="panel-heading">
+        <h3>评论区</h3>
+    </div>
+    <div class="panel-body" style="padding-bottom: 51px;">
+        <ul class="media-list">
+            <li class="media" ng-repeat="item in comments">
+                <div class="pull-left">
+                    <a href="javascript:;" class="comment" data-cid="{{item._id}}" data-tid="{{item.from._id}}" ng-click="Comment.reply(item._id, item.from._id)">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIi8+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+"
+                            alt="" class="media-object" style="width: 64px; height: 64px;">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{item.from.name}}</h4>
+                    <p>{{item.content}}</p>
+                    <div class="media" ng-repeat="reply in item.reply" ng-if="item.reply && item.reply.length>0">
+                        <div class="pull-left">
+                            <a href="javascript:;" class="comment" data-cid="{{item._id}}" data-tid="{{reply.from._id}}" ng-click="Comment.reply(item._id, item.from._id)">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIi8+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+"
+                                    alt="" class="media-object" style="width: 64px; height: 64px;">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">
+                                | {{reply.from.name}}
+                                <span class="text-info">&nbsp;回复&nbsp;</span>
+                                | {{reply.to.name}}:
+                            </h4>
+                            <p>{{reply.content}}</p>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+            </li>
+        </ul>
+        <div id="comments">
+            <form name="comment_form" ng-submit="Comment.save(Comment.comment);">
+                <input type="hidden" name="comment[movie]" ng-model="Comment.movie_id">
+                <input type="hidden" name="comment[from]" ng-model="Comment.user_id" ng-if="user_id">
+                <div class="form-group">
+                    <textarea name="comment[content]" row="3" class="form-control" ng-model="Comment.comment.content"></textarea>
+                </div>
+                <button class="btn btn-primary" type="submit" ng-if="user_id">提交</button>
+                <a ui-sref="signin" class="navbar-link" ng-if="!user_id">登录后评论</a>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+{
+  "name": "imooc",
+  "description": "imooc movie",
+  "main": "app.js",
+  "keywords": [
+    "imooc"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  },
+  "devDependencies": {
+    "angular": "^1.6.8",
+    "angular-ui-router": "^1.0.13",
+    "angular-cookies": "^1.6.8",
+    "moment": "^2.20.1"
+  }
+}

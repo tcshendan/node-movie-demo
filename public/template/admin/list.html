@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="row">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>电影类型</th>
+                    <th>电影名字</th>
+                    <th>导演</th>
+                    <th>国家</th>
+                    <th>上映年份</th>
+                    <th>录入时间</th>
+                    <th>语种</th>
+                    <th>片源地址</th>
+                    <th>pv</th>
+                    <th>查看</th>
+                    <th>更新</th>
+                    <th>删除</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr lass="item-id-{{item._id}}" ng-repeat="item in Movie.lists">
+                    <td>{{item.catetory.name}}</td>
+                    <td>{{item.title}}</td>
+                    <td>{{item.doctor}}</td>
+                    <td>{{item.country}}</td>
+                    <td>{{item.year}}</td>
+                    <td>{{item.meta.updateAt}}</td>
+                    <td>{{item.lanuage}}</td>
+                    <td>{{item.flash}}</td>
+                    <td>{{item.pv}}</td>
+                    <td>
+                        <a ui-sref="movie({id: item._id})" target="_blank">查看</a>
+                    </td>
+                    <td>
+                        <a ui-sref="updateMovie({id: item._id, index: $index})" target="_blank">修改</a>
+                    </td>
+                    <td>
+                        <button ui-sref="deleteMovie({id: item._id})" class="btn btn-danger del" type="button" data-id="{{item._id}}">删除</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

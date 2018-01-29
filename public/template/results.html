@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3>{{Search.keyword}}</h3>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-2" ng-repeat="item in Search.movies" ng-if="Search.movies && Search.movies.length>0">
+                    <div class="thumbnail">
+                        <a ui-sref="movie({id: item._id})">
+                            <img ng-src="{{item.poster}}" alt="{{item.title}}">
+                        </a>
+                        <div class="caption">
+                            <h3>{{item.title}}</h3>
+                            <p><a ui-sref="movie({id: item._id})" class="btn btn-primary" role="button">观看预告片</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="Search.totalCount>2">
+            <ul class="pager">
+                <li ng-class="{disabled:Search.currentPage<=1}"><a ng-click="Search.go(Search.query, Search.currentPage-1)">« 上一页</a></li>
+                <li ng-class="{disabled:Search.currentPage>=Search.totalPage}"><a ng-click="Search.go(Search.query, Search.currentPage+1)">下一页 »</a></li>
+            </ul>
+        </div>
+        <p>总共：{{Search.totalCount}}条记录，第{{Search.currentPage}}/{{Search.totalPage}}页</p>
+    </div>
+</div>

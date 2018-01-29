@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-7">
+            <img ng-src="{{Movie.detail.poster}}" style="width: 650px; height: 450px;">
+            <div comment-block movie-comments="Movie.comments" movie-id="movie.id" user-id="user.id" ></div>
+        </div>
+        <div class="col-md-5">
+            <dl class="dl-horizontal">
+                <dt>电影名称</dt>
+                <dd>{{Movie.detail.title}}</dd>
+                <dt>导演</dt>
+                <dd>{{Movie.detail.doctor}}</dd>
+                <dt>国家</dt>
+                <dd>{{Movie.detail.country}}</dd>
+                <dt>语言</dt>
+                <dd>{{Movie.detail.lanuage}}</dd>
+                <dt>上映年份</dt>
+                <dd>{{Movie.detail.year}}</dd>
+                <dt>简介</dt>
+                <dd>{{Movie.detail.summary}}</dd>
+            </dl>
+        </div>
+    </div>
+</div>

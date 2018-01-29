@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <meta charset="utf-8">
+    <title>imooc 电影</title>
+    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        .panel-default>.panel-heading {
+            color: #333;
+            background-color: #f5f5f5;
+            border-color: #ddd;
+        }
+
+        .panel-heading {
+            padding: 10px 15px;
+            border-bottom: 1px solid transparent;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+        }
+
+        .model-body {
+            padding: 6px 12px;
+        }
+
+        .input-error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="page-header clearfix">
+                <h1 ng-bind="title"></h1>
+                <div class="col-md-4">
+                    <small>重度科幻迷</small>
+                </div>
+                <div class="col-md-8">
+                    <form ng-submit="search(q)">
+                        <div class="input-group col-sm-4 pull-right">
+                            <input type="text" class="form-control" name="q" ng-model="q">
+                            <span class="input-group-btn">
+                              <button class="btn btn-default" type="submit">搜索</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ui-view></div>
+
+    <div class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="javascript:;" class="navbar-brand">重度科幻迷</a>
+            </div>
+            <p class="navbar-text navbar-right" ng-if="UserInfo">
+                <span ng-bind="'欢迎您，' + UserInfo"></span>
+                <span>&nbsp;|&nbsp;</span>
+                <a ui-sref="signout" class="navbar-link">登出</a>
+            </p>
+            <p class="navbar-text navbar-right" ng-if="!UserInfo">
+                <a ui-sref="signup" class="navbar-link">注册</a>
+                <span>&nbsp;|&nbsp;</span>
+                <a ui-sref="signin" class="navbar-link">登录</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- <div id="signupModal" class="modal fade" ng-controller="signupController">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="siginup_form" ng-submit="user.signup(user.signup_data)">
+                    <div class="modal-header">注册</div>
+                    <div class="model-body">
+                        <div class="form-group">
+                            <label for="signupName">用户名</label>
+                            <input type="text" class="form-control" name="name" ng-model="user.signup_data.name">
+                        </div>
+                        <div class="form-group">
+                            <label for="signupPassword">密码</label>
+                            <input type="text" class="form-control" name="password" ng-model="user.signup_data.password">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-default" type="button" data-dismiss="modal">关闭</button>
+                        <button class="btn btn-success" type="submit">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <div id="signinModal" class="modal fade" ng-controller="signinController">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="signin_form" ng-submit="user.signin(user.signin_data)">
+                    <div class="modal-header">登录</div>
+                    <div class="model-body">
+                        <div class="form-group">
+                            <label for="signinName">用户名</label>
+                            <input type="text" class="form-control" name="name" ng-model="user.signin_data.name">
+                        </div>
+                        <div class="form-group">
+                            <label for="signinPassword">密码</label>
+                            <input type="text" class="form-control" name="password" ng-model="user.signin_data.password">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-default" type="button" data-dismiss="modal">关闭</button>
+                        <button class="btn btn-success" type="submit">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> -->
+
+    <script src="/libs/jquery/dist/jquery.min.js"></script>
+    <script src="/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/libs/angular/angular.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
+    <script src="/libs/angular-cookies/angular-cookies.min.js"></script>
+    <script src="/libs/moment/min/moment.min.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+
+</html>
