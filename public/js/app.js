@@ -67,7 +67,7 @@ angular.module('myApp', ['ui.router', 'ngCookies'])
             });
         }
     }])
-    .config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', function($stateProvider, $urlRouterProvider, $controllerProvider) {
+    .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
         $stateProvider
             .state('main', {
                 url: '/main',
@@ -80,7 +80,7 @@ angular.module('myApp', ['ui.router', 'ngCookies'])
                 controller: 'detailController'
             })
             .state('signup', {
-                url: '/user/signup',
+                url: '/signup',
                 templateUrl: 'template/signup.html',
                 controller: 'signupController'
             })
@@ -173,6 +173,7 @@ angular.module('myApp', ['ui.router', 'ngCookies'])
                 controller: 'searchController'
             })
 
+        $locationProvider.hashPrefix('');
         $urlRouterProvider.otherwise('/main');
     }])
     .service('UserService', ['$http', '$state', '$q', 'Cache', function($http, $state, $q, Cache) {
